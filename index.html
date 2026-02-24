@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kaipara Webworks - Local Web Design & Tech Help | Kaipara, NZ</title>
+    <meta name="description" content="Friendly, professional web design, development, and tech support based in Kaipara. Helping local businesses build effective websites without the hassle.">
+
+    <link href="./dist/styles.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    </head>
+<body class="antialiased text-kw-light-beige bg-kw-dark-blue"> 
+    <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg border-b border-white/10 shadow-sm">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            <a href="#home" class="text-xl font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-kw-orange focus-visible:ring-offset-2 focus-visible:ring-offset-kw-dark-blue rounded">
+                <span class="font-serif text-kw-orange">KAIPARA</span>
+                <span class="font-sans text-kw-teal"> WEBWORKS</span>
+                </a>
+
+            <ul class="hidden md:flex space-x-8">
+                <li><a href="#services" class="text-sm font-medium text-kw-light-beige hover:text-kw-orange transition-colors duration-200 ease-in-out focus:outline-none focus-visible:text-kw-orange focus-visible:underline">Services</a></li>
+                <li><a href="#about" class="text-sm font-medium text-kw-light-beige hover:text-kw-orange transition-colors duration-200 ease-in-out focus:outline-none focus-visible:text-kw-orange focus-visible:underline">About</a></li>
+                <li><a href="#portfolio" class="text-sm font-medium text-kw-light-beige hover:text-kw-orange transition-colors duration-200 ease-in-out focus:outline-none focus-visible:text-kw-orange focus-visible:underline">Portfolio</a></li>
+                <li><a href="#contact" class="text-sm font-medium text-kw-light-beige hover:text-kw-orange transition-colors duration-200 ease-in-out focus:outline-none focus-visible:text-kw-orange focus-visible:underline">Contact</a></li>
+            </ul>
+
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded text-kw-light-beige hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-kw-orange">
+                <span class="sr-only">Open main menu</span>
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-white/10">
+            <ul class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                 <li><a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-kw-light-beige hover:bg-kw-teal hover:text-white focus:outline-none focus:bg-kw-teal focus:text-white">Services</a></li>
+                 <li><a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-kw-light-beige hover:bg-kw-teal hover:text-white focus:outline-none focus:bg-kw-teal focus:text-white">About</a></li>
+                 <li><a href="#portfolio" class="block px-3 py-2 rounded-md text-base font-medium text-kw-light-beige hover:bg-kw-teal hover:text-white focus:outline-none focus:bg-kw-teal focus:text-white">Portfolio</a></li>
+                 <li><a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-kw-light-beige hover:bg-kw-teal hover:text-white focus:outline-none focus:bg-kw-teal focus:text-white">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="home" class="min-h-screen flex items-center pt-24 sm:pt-32 pb-16">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-kw-light-beige">
+                    Get a Website That Works,<br> <span class="text-kw-orange">Without the Headaches</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-kw-g1-platinum/90 mb-6 max-w-2xl mx-auto">
+                    A solid, good-looking website. Easy to manage, built to bring in customers, and backed by local support when you need it.
+                </p>
+                <p class="text-lg sm:text-xl text-kw-g1-platinum/90 mb-10 max-w-2xl mx-auto">
+                    We build fast, affordable websites for Kaipara locals.<br>
+                    No tech jargon, no big-city price tags, no stress.
+                </p>
+                <div class="space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#contact" class="inline-block px-10 py-4 bg-gradient-to-r from-kw-orange to-kw-dark-red text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-kw-orange focus:ring-offset-2 focus:ring-offset-kw-dark-blue transform transition-all duration-300 ease-in-out">
+                        Send a Quick Message
+                    </a>
+                    <a href="tel:+64211423831" class="inline-block px-10 py-4 bg-kw-dark-blue/50 text-kw-orange text-lg font-semibold rounded-lg border border-kw-orange/50 hover:bg-kw-orange/10 focus:outline-none focus:ring-2 focus:ring-kw-orange focus:ring-offset-2 focus:ring-offset-kw-dark-blue transform transition-all duration-300 ease-in-out">
+                        Call Now
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-center mb-16 text-kw-light-beige">Simple, Effective Websites for Kaipara Businesses</h2>
+                <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+                    <div class="bg-gradient-to-br from-kw-teal/40 to-kw-dark-blue/30 p-8 rounded-lg border border-kw-g2-cadet-2/30 shadow-xl transform transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-2xl hover:border-white/20 hover:from-kw-teal/50 hover:to-kw-dark-blue/40">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 mb-5 text-kw-teal">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+                        </svg>
+                        <h3 class="font-serif text-2xl font-semibold mb-4 text-kw-light-beige"><strong>Quick to Launch</strong></h3>
+                        <p class="text-kw-light-beige/85 leading-relaxed">We'll get it up and running quickly, so you can focus on what you do best.</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-kw-teal/40 to-kw-dark-blue/30 p-8 rounded-lg border border-kw-g2-cadet-2/30 shadow-xl transform transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-2xl hover:border-white/20 hover:from-kw-teal/50 hover:to-kw-dark-blue/40">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 mb-5 text-kw-teal">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                        </svg>
+                        <h3 class="font-serif text-2xl font-semibold mb-4 text-kw-light-beige"><strong>Mobile-Friendly</strong></h3>
+                        <p class="text-kw-light-beige/85 leading-relaxed">Your site will look great on mobile, desktop, and everything your customers use.</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-kw-teal/40 to-kw-dark-blue/30 p-8 rounded-lg border border-kw-g2-cadet-2/30 shadow-xl transform transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-2xl hover:border-white/20 hover:from-kw-teal/50 hover:to-kw-dark-blue/40">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 mb-5 text-kw-teal">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                        </svg>
+                        <h3 class="font-serif text-2xl font-semibold mb-4 text-kw-light-beige"><strong>Google-Ready</strong></h3>
+                        <p class="text-kw-light-beige/85 leading-relaxed">We'll make sure you show up when locals search online.</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-kw-teal/40 to-kw-dark-blue/30 p-8 rounded-lg border border-kw-g2-cadet-2/30 shadow-xl transform transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-2xl hover:border-white/20 hover:from-kw-teal/50 hover:to-kw-dark-blue/40">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 mb-5 text-kw-teal">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                        </svg>
+                        <h3 class="font-serif text-2xl font-semibold mb-4 text-kw-light-beige"><strong>Easy to Update</strong></h3>
+                        <p class="text-kw-light-beige/85 leading-relaxed">Need to change something later? We'll sort it, no fuss.</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-kw-teal/40 to-kw-dark-blue/30 p-8 rounded-lg border border-kw-g2-cadet-2/30 shadow-xl transform transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-2xl hover:border-white/20 hover:from-kw-teal/50 hover:to-kw-dark-blue/40">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 mb-5 text-kw-teal">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                        <h3 class="font-serif text-2xl font-semibold mb-4 text-kw-light-beige"><strong>Affordable</strong></h3>
+                        <p class="text-kw-light-beige/85 leading-relaxed">We know small-town budgets. Our pricing is clear and fair.</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-kw-teal/40 to-kw-dark-blue/30 p-8 rounded-lg border border-kw-g2-cadet-2/30 shadow-xl transform transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-2xl hover:border-white/20 hover:from-kw-teal/50 hover:to-kw-dark-blue/40">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 mb-5 text-kw-teal">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z" />
+                        </svg>
+                        <h3 class="font-serif text-2xl font-semibold mb-4 text-kw-light-beige"><strong>Ongoing Support</strong></h3>
+                        <p class="text-kw-light-beige/85 leading-relaxed">Want help keeping things fresh? We're here when you need us: updates, tweaks, whatever.</p>
+                    </div>
+                </div>
+
+                <h3 class="mt-16 text-2xl sm:text-3xl font-serif font-bold text-center mb-12 text-kw-light-beige">More Ways We Can Help</h3>
+
+                <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+                    <!-- Card 1: Tech Coaching -->
+                    <div class="bg-gradient-to-br from-kw-g5-rust/40 to-kw-g5-sienna/30 p-8 rounded-lg border border-kw-g2-cadet-2/30 shadow-xl transform transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-2xl hover:border-white/20 hover:from-kw-g5-rust/50 hover:to-kw-g5-sienna/40">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 mb-5 text-kw-orange">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6H6a6 6 0 006 6zM12 5.25a.75.75 0 01.75.75v2.645a.75.75 0 01-1.5 0V6a.75.75 0 01.75-.75zM12 2.25A2.25 2.25 0 009.75 4.5v1.5H12V2.25zM14.25 6H12v4.5h2.25A2.25 2.25 0 0016.5 8.25V6h-2.25zM7.5 6h2.25v2.25A2.25 2.25 0 017.5 10.5V6zM12 12.75a.75.75 0 000 1.5h.008a.75.75 0 000-1.5H12z" />
+                        </svg>
+                        <h3 class="font-serif text-2xl font-semibold mb-4 text-kw-light-beige"><strong>Friendly Tech Coaching</strong></h3>
+                        <p class="text-kw-light-beige/85 leading-relaxed">Want to get comfortable with new software, explore creative tools, or just make tech work better for you? We offer patient, personalized coaching to help you learn what you need, at your own pace.</p>
+                    </div>
+
+                    <!-- Card 2: General Tech Help -->
+                    <div class="bg-gradient-to-br from-kw-g5-rust/40 to-kw-g5-sienna/30 p-8 rounded-lg border border-kw-g2-cadet-2/30 shadow-xl transform transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-2xl hover:border-white/20 hover:from-kw-g5-rust/50 hover:to-kw-g5-sienna/40">
+                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 mb-5 text-kw-orange">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L1.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.25 12L17 14.25l-1.25-2.25L13.5 11l2.25-1.25L17 7.5l1.25 2.25L20.5 11l-2.25 1.25z" />
+                        </svg>
+                        <h3 class="font-serif text-2xl font-semibold mb-4 text-kw-light-beige"><strong>Your Local Tech Helper</strong></h3>
+                        <p class="text-kw-light-beige/85 leading-relaxed">Got a tech question or small project? From device setup to troubleshooting, or just figuring things out online – don't hesitate to reach out. If it's tech-related, we can likely help.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 md:w-3/4 lg:w-1/2 text-center">
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold mb-8 text-kw-light-beige">Local, Personal, Reliable</h2>
+                <p class="text-lg text-kw-g1-platinum/90 mb-6 leading-relaxed">
+                    We're based right here in Dargaville, and we built Kaipara Webworks to make life easier for businesses, groups, and creatives across the region.
+                </p>
+                <p class="text-lg text-kw-g1-platinum/90 mb-6 leading-relaxed">
+                    We know what it's like: you're flat out running things, and the website ends up at the bottom of the list. We're here to change that.
+                </p>
+                <ul class="text-lg text-kw-g1-platinum/90 mb-6 leading-relaxed space-y-2">
+                    <li>• <strong>A website that brings in leads</strong>, not just looks good</li>
+                    <li>• <strong>Straight-up support</strong> when something needs fixing</li>
+                    <li>• <strong>Pricing that makes sense</strong> — no hidden fees, no guesswork</li>
+                </ul>
+                <p class="text-lg text-kw-g1-platinum/90 leading-relaxed">
+                    Whether you're a builder, café owner, artist, club, or community group, we've got your back.
+                </p>
+            </div>
+        </section>
+
+        <section id="portfolio" class="py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold mb-8 text-kw-light-beige">See What We've Built Around Kaipara</h2>
+                <p class="text-lg text-kw-g1-platinum/90 mb-6 max-w-xl mx-auto">
+                    We've helped local businesses, organisations, and creatives get online with websites that are clean, modern, and designed to get results.
+                </p>
+                <p class="text-lg text-kw-g1-platinum/90 mb-16 max-w-xl mx-auto">
+                    Want to see what that looks like? Take a peek at a few of our recent builds.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+                    <div class="bg-kw-dark-blue/30 rounded-lg border border-kw-mid-beige/10 shadow-xl overflow-hidden">
+                        <div class="p-4">
+                            <div class="aspect-video bg-black/10 rounded">
+                                <div class="relative flex items-end justify-center gap-4 w-full h-full">
+                                    <!-- Laptop Image -->
+                                    <div class="w-[65%] h-full flex items-center justify-center">
+                                        <picture>
+                                            <source srcset="public/images/laptopBuilderSmall.webp" type="image/webp">
+                                            <source srcset="public/images/laptopBuilderSmall.png" type="image/png">
+                                            <img src="public/images/laptopBuilderSmall.webp"
+                                                 alt="Laptop view of Local Business Website project"
+                                                 class="rounded-md w-full h-auto object-contain max-h-full">
+                                        </picture>
+                                    </div>
+
+                                    <!-- Phone Image -->
+                                    <div class="w-[65%] h-full flex items-center justify-center sm:mb-0 -mb-0 -ml-32">
+                                        <picture>
+                                            <source srcset="public/images/builderPhoneSmall.webp" type="image/webp">
+                                            <source srcset="public/images/builderPhoneSmall.png" type="image/png">
+                                            <img src="public/images/builderPhoneSmall.webp"
+                                                 alt="Phone view of Local Business Website project"
+                                                 class="rounded-md w-full h-auto object-contain max-h-full">
+                                        </picture>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 text-left">
+                            <h3 class="font-serif text-xl font-semibold mb-3 text-kw-teal">Local Business Website</h3>
+                            <p class="text-kw-mid-beige text-sm mb-4 leading-relaxed">
+                                A professional website showcasing building and carpentry services, designed to generate leads.
+                            </p>
+                            <span class="inline-block bg-teal-600/50 text-teal-100 text-xs font-semibold px-2.5 py-1 rounded-full">
+                                Live Project
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="bg-kw-dark-blue/30 rounded-lg border border-kw-mid-beige/10 shadow-xl overflow-hidden">
+                         <div class="p-4">  <!-- Padding wrapper for margin effect -->
+                            <div class="aspect-video bg-black/10 rounded flex items-center justify-center">
+                                <span class="font-semibold text-kw-orange opacity-75 text-lg">Coming Soon</span>
+                            </div>
+                         </div>
+                         <div class="p-4 text-left">
+                            <h3 class="font-serif text-xl font-semibold mb-3 text-kw-teal">Event Landing Page</h3>
+                            <p class="text-kw-mid-beige text-sm mb-4 leading-relaxed">A focused landing page designed to drive event registrations and engagement.</p>
+                            <span class="inline-block bg-yellow-600/50 text-yellow-100 text-xs font-semibold px-2.5 py-1 rounded-full">Coming Soon</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 md:w-3/4 lg:w-1/2">
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-center mb-8 text-kw-light-beige">Let's Make Your Website Work for You</h2>
+                <p class="text-lg text-kw-g1-platinum/90 text-center mb-12 max-w-xl mx-auto">
+                    Got something in mind? Not sure where to start? Just send us a quick message and we'll get back to you within 24 hours.
+                </p>
+
+                <form name="contact" method="POST" action="/success" data-netlify="true" data-netlify-honeypot="bot-field" class="bg-kw-dark-blue/30 p-8 sm:p-10 rounded-lg border border-kw-mid-beige/10 shadow-xl space-y-6">
+                    <input type="hidden" name="form-name" value="contact" />
+                    <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-kw-light-beige mb-2">Name</label>
+                        <input type="text" name="name" id="name" required class="w-full px-4 py-3 rounded bg-white/5 border border-white/10 focus:ring-2 focus:ring-kw-orange focus:border-kw-orange/0 focus:outline-none placeholder-kw-mid-beige/60 text-kw-light-beige transition duration-200 ease-in-out">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-kw-light-beige mb-2">Email</label>
+                        <input type="email" name="email" id="email" required class="w-full px-4 py-3 rounded bg-white/5 border border-white/10 focus:ring-2 focus:ring-kw-orange focus:border-kw-orange/0 focus:outline-none placeholder-kw-mid-beige/60 text-kw-light-beige transition duration-200 ease-in-out">
+                    </div>
+                    <div>
+                        <label for="business-type" class="block text-sm font-medium text-kw-light-beige mb-2">What type of website or business do you have? (Optional)</label>
+                        <input type="text" name="business-type" id="business-type" class="w-full px-4 py-3 rounded bg-white/5 border border-white/10 focus:ring-2 focus:ring-kw-orange focus:border-kw-orange/0 focus:outline-none placeholder-kw-mid-beige/60 text-kw-light-beige transition duration-200 ease-in-out">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-kw-light-beige mb-2">Message</label>
+                        <textarea name="message" id="message" rows="5" required class="w-full px-4 py-3 rounded bg-white/5 border border-white/10 focus:ring-2 focus:ring-kw-orange focus:border-kw-orange/0 focus:outline-none placeholder-kw-mid-beige/60 text-kw-light-beige transition duration-200 ease-in-out"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full px-8 py-4 bg-gradient-to-r from-kw-orange to-kw-dark-red text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-kw-orange focus:ring-offset-2 focus:ring-offset-kw-dark-blue transform transition-all duration-300 ease-in-out">
+                            Send Message
+                        </button>
+                        <p class="text-xs text-kw-mid-beige/70 mt-2 text-center">Your details are used only to respond to your enquiry.</p>
+                    </div>
+                </form>
+
+                <div class="text-center mt-10 space-y-4">
+                    <p class="text-kw-mid-beige text-sm">
+                        Prefer to have a quick chat? <br>
+                        <span class="block mt-2">
+                            <span class="font-semibold text-kw-orange">Call Ben directly:</span>
+                            <a href="tel:+64211423831" class="ml-1 hover:underline focus:outline-none focus-visible:underline">+64 21 142 3831</a>
+                        </span>
+                        <span class="block mt-2">
+                            <span class="font-semibold text-kw-orange">Or book a time that suits you:</span>
+                            <a href="https://calendly.com/benteiko/15-minute-call" target="_blank" rel="noopener noreferrer" class="ml-1 inline-block text-kw-g4b-slate-light hover:underline focus:outline-none focus-visible:underline">Book a Call Here</a>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-white/10 py-10 mt-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-kw-mid-beige text-sm">
+            <div class="mb-4 space-x-6">
+                <a href="#home" class="hover:text-kw-orange transition-colors duration-200 ease-in-out">Home</a>
+                <a href="#services" class="hover:text-kw-orange transition-colors duration-200 ease-in-out">Services</a>
+                <a href="#about" class="hover:text-kw-orange transition-colors duration-200 ease-in-out">About</a>
+                <a href="#contact" class="hover:text-kw-orange transition-colors duration-200 ease-in-out">Contact</a>
+            </div>
+            <p class="opacity-75">&copy; <span id="current-year"></span> Kaipara Webworks. Proudly building for Dargaville and beyond.</p>
+            <p class="opacity-75 mt-1">Built by locals, for locals.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Simple Mobile Menu Toggle ---
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // --- Update Footer Year ---
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // --- Active Nav Link Indicator --- 
+        const navLinks = document.querySelectorAll('header nav ul a[href^="#"]');
+        const sections = document.querySelectorAll('main section[id]');
+
+        const removeActiveClasses = () => {
+            navLinks.forEach(link => link.classList.remove('nav-active'));
+        };
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '-40% 0px -50% 0px', // Adjust trigger zone: activate when section is near top 40% of viewport
+            threshold: 0 
+        };
+
+        const observerCallback = (entries) => {
+            let lastVisibleLink = null;
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const sectionId = entry.target.id;
+                    // Find the link whose href ends with '#' + sectionId
+                    const targetLink = document.querySelector(`header nav ul a[href$="#${sectionId}"]`);
+                    if (targetLink) {
+                        lastVisibleLink = targetLink; // Track the lowest section currently intersecting the trigger zone
+                    }
+                }
+            });
+
+            if (lastVisibleLink) {
+                 // Check window width before applying desktop-only active class
+                 if (window.innerWidth >= 768) { 
+                    removeActiveClasses();
+                    lastVisibleLink.classList.add('nav-active');
+                 }
+            } else {
+                // If nothing is intersecting (e.g., scrolled past end), maybe deactivate all?
+                 if (window.innerWidth >= 768) { removeActiveClasses(); }
+            }
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Handle clicks for immediate feedback on desktop
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth >= 768) { // Apply only on desktop
+                    removeActiveClasses();
+                    link.classList.add('nav-active');
+                }
+            });
+        });
+        
+        // Optional: Re-evaluate active link on window resize
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                 if (window.innerWidth < 768) {
+                     removeActiveClasses(); // Remove active state on mobile
+                 } else {
+                     // Re-trigger observation logic or manually check scroll position on resize to desktop
+                     // For simplicity, let's just remove if going mobile. Observer handles desktop.
+                 }
+            }, 250); 
+        });
+
+    </script>
+
+</body>
+</html>
