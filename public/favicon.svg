@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#003447"/>
+  <text x="9" y="50%" dominant-baseline="central" text-anchor="middle"
+    font-family="Lora, Georgia, serif" font-weight="700" font-size="16"
+    fill="#E34B26">K</text>
+  <text x="23" y="50%" dominant-baseline="central" text-anchor="middle"
+    font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="16"
+    fill="#6A868E">W</text>
+</svg>
