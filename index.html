@@ -290,7 +290,7 @@
                     Got something in mind? Not sure where to start? Just send us a quick message and we'll get back to you within 24 hours.
                 </p>
 
-                <form name="contact" method="POST" action="/success" data-netlify="true" data-netlify-honeypot="bot-field" class="bg-kw-dark-blue/30 p-8 sm:p-10 rounded-lg border border-kw-mid-beige/10 shadow-xl space-y-6">
+                <form id="contact-form" name="contact" method="POST" action="/success" data-netlify="true" data-netlify-honeypot="bot-field" class="bg-kw-dark-blue/30 p-8 sm:p-10 rounded-lg border border-kw-mid-beige/10 shadow-xl space-y-6">
                     <input type="hidden" name="form-name" value="contact" />
                     <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
                     <div>
@@ -316,6 +316,15 @@
                         <p class="text-xs text-kw-mid-beige/70 mt-2 text-center">Your details are used only to respond to your enquiry.</p>
                     </div>
                 </form>
+
+                <!-- Inline success state (hidden until form submitted) -->
+                <div id="contact-success" class="hidden bg-kw-dark-blue/30 p-8 sm:p-10 rounded-lg border border-kw-mid-beige/10 shadow-xl text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 mx-auto mb-4 text-kw-teal">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+                    <h3 class="font-serif text-2xl font-semibold mb-3 text-kw-light-beige">Message received, thanks!</h3>
+                    <p class="text-kw-g1-platinum/90 leading-relaxed">We'll get back to you within 24 hours, usually sooner.</p>
+                </div>
 
                 <div class="text-center mt-10 space-y-4">
                     <p class="text-kw-mid-beige text-sm">
@@ -433,6 +442,27 @@
                      // For simplicity, let's just remove if going mobile. Observer handles desktop.
                  }
             }, 250); 
+        });
+
+        // --- Contact form: fetch submission with inline success state ---
+        const contactForm = document.getElementById('contact-form');
+        const contactSuccess = document.getElementById('contact-success');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(new FormData(contactForm)).toString()
+            })
+            .then(() => {
+                contactForm.classList.add('hidden');
+                contactSuccess.classList.remove('hidden');
+            })
+            .catch(() => {
+                // Fallback: let the form submit normally if fetch fails
+                contactForm.submit();
+            });
         });
 
     </script>
