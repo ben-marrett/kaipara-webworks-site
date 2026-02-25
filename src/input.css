@@ -5,11 +5,11 @@
 @tailwind utilities;
 
 /* Apply base background to HTML element */
-html {
+/* html {
   background-image: linear-gradient(to bottom, #041920, #021015);
-  background-color: #021015; /* Set solid fallback/overscroll color */
+  background-color: #021015;
   background-attachment: fixed;
-}
+} */
 
 /* Styling for headings */
 h1, h2, h3, h4, h5, h6 {
@@ -39,75 +39,30 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Style #home with gradient AND mask */
+/* Style #home with gradient AND mask — DISABLED, kept for reference
 #home {
-  /* This combines all background images and their properties */
   background-image:
-    /* Layer 1: The noise image (on top of everything) */
     url('../200-20-100-monochrome.png'),
-
-    /* Layer 2: White spotlight behind heading (the one you wanted to fix) */
     radial-gradient(ellipse 60% 40% at 50% 35%, rgba(255, 255, 255, 0.08) 0%, transparent 70%),
-
-    /* Layer 3: Soft blue-ish glow */
     radial-gradient(ellipse 80% 60% at 50% 45%, rgba(60, 110, 130, 0.08) 0%, transparent 70%),
-
-    /* Layer 4: Directional blend */
     linear-gradient(to bottom right, rgba(255, 85, 40, 0.02), transparent);
-
-
-  /* --- NEW / MODIFIED PROPERTIES --- */
-
-  /* Define repeat for EACH layer, in the same order as background-image */
-  background-repeat:
-    repeat, /* For the noise image (it needs to tile!) */
-    no-repeat, /* For the white spotlight radial gradient */
-    no-repeat, /* For the soft blue-ish glow radial gradient */
-    no-repeat; /* For the directional blend linear gradient */
-
-  /* Define position for EACH layer */
-  background-position:
-    center center, /* For the noise image (doesn't matter much if repeating) */
-    center center, /* For the white spotlight radial gradient */
-    center center, /* For the soft blue-ish glow radial gradient */
-    center center; /* For the directional blend linear gradient */
-
-  /* Define size for EACH layer */
-  background-size:
-    auto, /* For the noise image (keeps its original pixel size, allowing it to tile finely) */
-    cover, /* For the white spotlight radial gradient */
-    cover, /* For the soft blue-ish glow radial gradient */
-    cover; /* For the directional blend linear gradient */
-
-  /* Define blend mode for EACH layer, in the same order as background-image */
-  /* This is the crucial part for the noise */
-  background-blend-mode:
-    soft-light, /* How the noise blends with the white spotlight radial gradient below it */
-    normal,     /* How the white spotlight blends with the blue glow below it (normal = default) */
-    normal,     /* How the blue glow blends with the linear gradient below it */
-    normal;     /* How the linear gradient blends with the overall background-color (if any) */
-
-
-  /* --- Existing properties, moved below for clarity --- */
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+  background-position: center center, center center, center center, center center;
+  background-size: auto, cover, cover, cover;
+  background-blend-mode: soft-light, normal, normal, normal;
   mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-
-  /* IMPORTANT: Ensure you have a base background-color for all these transparent gradients to sit on */
-  /* If you don't, they'll just blend with the browser's default background (usually white) */
-  background-color: #021015; /* Or whatever your main dark background color is */
+  background-color: #021015;
 }
-
-
-/* --- End updated #home rule --- */
+*/
 
 /* Ensure the body just has the solid background */
-body {
+/* body {
   @apply font-sans text-kw-light-beige antialiased;
   min-height: 100vh;
-  /* Apply the base linear gradient to the entire body */
   background-image: linear-gradient(to bottom, #041920, #021015);
-  background-attachment: fixed; /* Keep the gradient fixed */
-}
+  background-attachment: fixed;
+} */
 
   
 /* --- Add Subtle Services Glow --- */
@@ -125,8 +80,18 @@ body {
   /* @apply ring-2 ring-kw-orange ring-offset-2 ring-offset-kw-dark-blue; */
 /* } */
 
-/* Previous gradient background:
+/* Previous gradient background — DISABLED:
 body {
   @apply bg-gradient-to-br from-kw-mid-beige to-kw-dark-blue text-kw-light-beige;
 }
 */
+
+body {
+  background-color: #021015;
+}
+
+#home {
+  background-image: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(73, 116, 127, 0.18) 0%, transparent 70%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
