@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave a Review - Kaipara Webworks</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link href="./dist/styles.css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="./public/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body class="antialiased text-kw-light-beige">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-kw-dark-blue/65 backdrop-blur-lg border-b border-white/10 shadow-sm">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            <a href="/" class="text-xl font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-kw-orange focus-visible:ring-offset-2 focus-visible:ring-offset-kw-dark-blue rounded">
+                <span class="font-serif text-kw-orange">KAIPARA</span>
+                <span class="font-sans text-kw-teal"> WEBWORKS</span>
+            </a>
+        </nav>
+    </header>
+
+    <main class="min-h-screen pt-24 pb-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 md:w-3/4 lg:w-1/2">
+
+            <div class="text-center mb-10">
+                <h1 class="font-serif text-4xl sm:text-5xl font-bold mb-4 text-kw-light-beige">
+                    How did we do?
+                </h1>
+                <p class="text-lg text-kw-g1-platinum/90 leading-relaxed">Got a minute?</p>
+                <p class="text-lg text-kw-g1-platinum/90 leading-relaxed">We'd love to hear what you thought.</p>
+            </div>
+
+            <!-- Feedback form -->
+            <form id="feedback-form" name="feedback" method="POST" action="/feedback-success" data-netlify="true" data-netlify-honeypot="bot-field" class="bg-kw-dark-blue/30 p-8 sm:p-10 rounded-lg border border-kw-mid-beige/10 shadow-xl space-y-6">
+                <input type="hidden" name="form-name" value="feedback" />
+                <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+                <!-- Name -->
+                <div>
+                    <label for="name" class="block text-sm font-medium text-kw-light-beige mb-2">Your name</label>
+                    <input type="text" name="name" id="name" required class="w-full px-4 py-3 rounded bg-white/5 border border-white/10 focus:ring-2 focus:ring-kw-orange focus:border-kw-orange/0 focus:outline-none placeholder-kw-mid-beige/60 text-kw-light-beige transition duration-200 ease-in-out">
+                </div>
+
+                <!-- Business name -->
+                <div>
+                    <label for="business" class="block text-sm font-medium text-kw-light-beige mb-2">Business name <span class="text-kw-mid-beige/60 font-normal">(optional)</span></label>
+                    <input type="text" name="business" id="business" class="w-full px-4 py-3 rounded bg-white/5 border border-white/10 focus:ring-2 focus:ring-kw-orange focus:border-kw-orange/0 focus:outline-none placeholder-kw-mid-beige/60 text-kw-light-beige transition duration-200 ease-in-out">
+                </div>
+
+                <!-- Star rating -->
+                <div>
+                    <label class="block text-sm font-medium text-kw-light-beige mb-3">Overall rating</label>
+                    <div id="star-rating" class="flex gap-2">
+                        <input type="radio" name="rating" id="star1" value="1" class="sr-only" required>
+                        <label for="star1" class="star-label text-4xl cursor-pointer text-kw-mid-beige/40 hover:text-kw-orange transition-colors duration-150" aria-label="1 star">&#9733;</label>
+                        <input type="radio" name="rating" id="star2" value="2" class="sr-only">
+                        <label for="star2" class="star-label text-4xl cursor-pointer text-kw-mid-beige/40 hover:text-kw-orange transition-colors duration-150" aria-label="2 stars">&#9733;</label>
+                        <input type="radio" name="rating" id="star3" value="3" class="sr-only">
+                        <label for="star3" class="star-label text-4xl cursor-pointer text-kw-mid-beige/40 hover:text-kw-orange transition-colors duration-150" aria-label="3 stars">&#9733;</label>
+                        <input type="radio" name="rating" id="star4" value="4" class="sr-only">
+                        <label for="star4" class="star-label text-4xl cursor-pointer text-kw-mid-beige/40 hover:text-kw-orange transition-colors duration-150" aria-label="4 stars">&#9733;</label>
+                        <input type="radio" name="rating" id="star5" value="5" class="sr-only">
+                        <label for="star5" class="star-label text-4xl cursor-pointer text-kw-mid-beige/40 hover:text-kw-orange transition-colors duration-150" aria-label="5 stars">&#9733;</label>
+                    </div>
+                </div>
+
+                <!-- Testimonial -->
+                <div>
+                    <label for="testimonial" class="block text-sm font-medium text-kw-light-beige mb-2">Tell us about your experience</label>
+                    <textarea name="testimonial" id="testimonial" rows="5" required placeholder="What did we help you with, and how did it go?" class="w-full px-4 py-3 rounded bg-white/5 border border-white/10 focus:ring-2 focus:ring-kw-orange focus:border-kw-orange/0 focus:outline-none placeholder-kw-mid-beige/40 text-kw-light-beige transition duration-200 ease-in-out"></textarea>
+                </div>
+
+                <!-- Permission checkbox -->
+                <div class="flex items-start gap-3">
+                    <input type="checkbox" name="permission" id="permission" value="yes" class="mt-1 w-4 h-4 rounded border-white/20 bg-white/5 accent-kw-orange cursor-pointer">
+                    <label for="permission" class="text-sm text-kw-g1-platinum/90 cursor-pointer leading-relaxed">
+                        I'm happy for this to appear on the Kaipara Webworks website
+                    </label>
+                </div>
+
+                <!-- Submit -->
+                <div>
+                    <button type="submit" class="w-full px-8 py-4 bg-gradient-to-r from-kw-orange to-kw-dark-red text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-kw-orange focus:ring-offset-2 focus:ring-offset-kw-dark-blue transform transition-all duration-300 ease-in-out">
+                        Send Feedback
+                    </button>
+                </div>
+            </form>
+
+            <!-- Inline success state -->
+            <div id="feedback-success" class="hidden bg-kw-dark-blue/30 p-8 sm:p-10 rounded-lg border border-kw-mid-beige/10 shadow-xl text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 mx-auto mb-4 text-kw-teal">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                <h3 class="font-serif text-2xl font-semibold mb-3 text-kw-light-beige">Thank you, that means a lot.</h3>
+                <p class="text-kw-g1-platinum/90 leading-relaxed">Your feedback has been received. We really appreciate you taking the time.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="border-t border-white/10 py-10">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-kw-mid-beige text-sm">
+            <p class="opacity-75">&copy; <span id="current-year"></span> Kaipara Webworks. Proudly serving Dargaville and across Northland.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // --- Star rating interaction ---
+        const stars = document.querySelectorAll('.star-label');
+        const radios = document.querySelectorAll('input[name="rating"]');
+
+        function updateStars(selectedValue) {
+            stars.forEach((star, index) => {
+                if (index < selectedValue) {
+                    star.style.color = '#E34B26';
+                } else {
+                    star.style.color = '';
+                }
+            });
+        }
+
+        radios.forEach((radio, index) => {
+            radio.addEventListener('change', () => updateStars(index + 1));
+        });
+
+        stars.forEach((star, index) => {
+            star.addEventListener('mouseenter', () => {
+                stars.forEach((s, i) => {
+                    s.style.color = i <= index ? '#E34B26' : '';
+                });
+            });
+            star.addEventListener('mouseleave', () => {
+                const checked = document.querySelector('input[name="rating"]:checked');
+                updateStars(checked ? parseInt(checked.value) : 0);
+            });
+        });
+
+        // --- Fetch submission with inline success ---
+        const feedbackForm = document.getElementById('feedback-form');
+        const feedbackSuccess = document.getElementById('feedback-success');
+
+        feedbackForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(new FormData(feedbackForm)).toString()
+            })
+            .then(() => {
+                feedbackForm.classList.add('hidden');
+                feedbackSuccess.classList.remove('hidden');
+            })
+            .catch(() => {
+                feedbackForm.submit();
+            });
+        });
+    </script>
+
+</body>
+</html>
