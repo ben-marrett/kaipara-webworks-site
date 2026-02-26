@@ -1,0 +1,21 @@
+{
+  "name": "Kaipara Webworks",
+  "short_name": "KWW",
+  "icons": [
+    {
+      "src": "/public/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/public/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#003447",
+  "background_color": "#021015",
+  "display": "standalone"
+}
