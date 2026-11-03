@@ -83,9 +83,19 @@
 
                 <!-- Submit -->
                 <div>
-                    <button type="submit" class="w-full px-8 py-4 bg-gradient-to-r from-kw-orange to-kw-dark-red text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-kw-orange focus:ring-offset-2 focus:ring-offset-kw-dark-blue transform transition-all duration-300 ease-in-out">
+                    <button type="submit" id="feedback-submit" class="w-full px-8 py-4 bg-gradient-to-r from-kw-orange to-kw-dark-red text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-kw-orange focus:ring-offset-2 focus:ring-offset-kw-dark-blue transform transition-all duration-300 ease-in-out disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100">
                         Send Feedback
                     </button>
+
+                    <!-- Error state: only shown if both the fetch and the server-side retry fail -->
+                    <div id="feedback-error" role="alert" class="hidden mt-6 bg-kw-dark-red/20 border border-kw-orange/40 rounded-lg p-5 text-center">
+                        <p class="text-kw-light-beige font-semibold mb-2">That didn't go through.</p>
+                        <p class="text-kw-g1-platinum/90 text-sm leading-relaxed">
+                            Sorry — something went wrong on our end. Your feedback is still in the form above, so nothing is lost.
+                            Please try again, or email it to
+                            <a href="mailto:ben@kaiparawebworks.co.nz" class="font-semibold text-kw-orange hover:underline focus:outline-none focus-visible:underline">ben@kaiparawebworks.co.nz</a>.
+                        </p>
+                    </div>
                 </div>
             </form>
 
@@ -144,23 +154,44 @@
         const feedbackForm = document.getElementById('feedback-form');
         const feedbackSuccess = document.getElementById('feedback-success');
 
+        const feedbackError = document.getElementById('feedback-error');
+        const feedbackSubmit = document.getElementById('feedback-submit');
+
+        // Netlify captures any POST carrying a known form-name, so posting to the
+        // form's action is a genuine second attempt rather than a cosmetic retry.
+        // Both attempts stay in-page, so a total failure can show a branded message
+        // instead of navigating the visitor to a raw browser error page.
+        const postFeedback = (url) => fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(new FormData(feedbackForm)).toString()
+        }).then((res) => {
+            // fetch only rejects on network failure, so check the status too —
+            // otherwise a 404/500 would still show the thank-you and lose the feedback
+            if (!res.ok) throw new Error('Submission failed: ' + res.status);
+            return res;
+        });
+
         feedbackForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            fetch('/', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams(new FormData(feedbackForm)).toString()
-            })
-            .then((res) => {
-                // fetch only rejects on network failure, so check the status too —
-                // otherwise a 404/500 would still show the thank-you and lose the feedback
-                if (!res.ok) throw new Error('Submission failed: ' + res.status);
-                feedbackForm.classList.add('hidden');
-                feedbackSuccess.classList.remove('hidden');
-            })
-            .catch(() => {
-                feedbackForm.submit();
-            });
+
+            feedbackError.classList.add('hidden');
+            feedbackSubmit.disabled = true;
+            feedbackSubmit.textContent = 'Sending...';
+
+            postFeedback('/')
+                .catch(() => postFeedback(feedbackForm.getAttribute('action')))
+                .then(() => {
+                    feedbackForm.classList.add('hidden');
+                    feedbackSuccess.classList.remove('hidden');
+                })
+                .catch(() => {
+                    // Both attempts failed — keep them on the page with their words
+                    // intact and a way to reach Ben directly.
+                    feedbackError.classList.remove('hidden');
+                    feedbackSubmit.disabled = false;
+                    feedbackSubmit.textContent = 'Send Feedback';
+                });
         });
     </script>
 

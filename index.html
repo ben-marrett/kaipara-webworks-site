@@ -437,10 +437,20 @@
                         <textarea name="message" id="message" rows="5" required class="w-full px-4 py-3 rounded bg-white/5 border border-white/10 focus:ring-2 focus:ring-kw-orange focus:border-kw-orange/0 focus:outline-none placeholder-kw-mid-beige/60 text-kw-light-beige transition duration-200 ease-in-out"></textarea>
                     </div>
                     <div>
-                        <button type="submit" class="w-full px-8 py-4 bg-gradient-to-r from-kw-orange to-kw-dark-red text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-kw-orange focus:ring-offset-2 focus:ring-offset-kw-dark-blue transform transition-all duration-300 ease-in-out">
+                        <button type="submit" id="contact-submit" class="w-full px-8 py-4 bg-gradient-to-r from-kw-orange to-kw-dark-red text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-kw-orange focus:ring-offset-2 focus:ring-offset-kw-dark-blue transform transition-all duration-300 ease-in-out disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100">
                             Send Message
                         </button>
                         <p class="text-xs text-kw-mid-beige/70 mt-2 text-center">Your details are used only to respond to your enquiry.</p>
+
+                        <!-- Error state: only shown if both the fetch and the server-side retry fail -->
+                        <div id="contact-error" role="alert" class="hidden mt-6 bg-kw-dark-red/20 border border-kw-orange/40 rounded-lg p-5 text-center">
+                            <p class="text-kw-light-beige font-semibold mb-2">That didn't go through.</p>
+                            <p class="text-kw-g1-platinum/90 text-sm leading-relaxed">
+                                Sorry — something went wrong on our end. Your message is still in the form above, so nothing is lost.
+                                Please try again, or call Ben directly on
+                                <a href="tel:+64211423831" class="font-semibold text-kw-orange hover:underline focus:outline-none focus-visible:underline">+64 21 142 3831</a>.
+                            </p>
+                        </div>
                     </div>
                 </form>
 
@@ -583,21 +593,44 @@
         const contactForm = document.getElementById('contact-form');
         const contactSuccess = document.getElementById('contact-success');
 
+        const contactError = document.getElementById('contact-error');
+        const contactSubmit = document.getElementById('contact-submit');
+
+        // Netlify captures any POST carrying a known form-name, so posting to the
+        // form's action is a genuine second attempt rather than a cosmetic retry.
+        // Both attempts stay in-page, so a total failure can show a branded message
+        // instead of navigating the visitor to a raw browser error page.
+        const postContact = (url) => fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(new FormData(contactForm)).toString()
+        }).then((res) => {
+            // fetch only rejects on network failure, so check the status too —
+            // otherwise a 404/500 would still show the thank-you and lose the enquiry
+            if (!res.ok) throw new Error('Submission failed: ' + res.status);
+            return res;
+        });
+
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            fetch('/', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams(new FormData(contactForm)).toString()
-            })
-            .then(() => {
-                contactForm.classList.add('hidden');
-                contactSuccess.classList.remove('hidden');
-            })
-            .catch(() => {
-                // Fallback: let the form submit normally if fetch fails
-                contactForm.submit();
-            });
+
+            contactError.classList.add('hidden');
+            contactSubmit.disabled = true;
+            contactSubmit.textContent = 'Sending...';
+
+            postContact('/')
+                .catch(() => postContact(contactForm.getAttribute('action')))
+                .then(() => {
+                    contactForm.classList.add('hidden');
+                    contactSuccess.classList.remove('hidden');
+                })
+                .catch(() => {
+                    // Both attempts failed — keep them on the page with their message
+                    // intact and a way to reach Ben directly.
+                    contactError.classList.remove('hidden');
+                    contactSubmit.disabled = false;
+                    contactSubmit.textContent = 'Send Message';
+                });
         });
 
     </script>
