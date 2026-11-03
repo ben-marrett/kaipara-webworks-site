@@ -76,8 +76,34 @@ Both forms are Netlify Forms — marked with `data-netlify="true"`, a hidden
 `form-name` input, and a `bot-field` honeypot. Submissions appear under **Forms**
 in the Netlify dashboard; there is no server-side code in this repo.
 
-- `index.html` — `contact`, posts to `/success`
-- `feedback.html` — `feedback`, posts to `/feedback-success`
+- `index.html` — `contact`, action `/success`
+- `feedback.html` — `feedback`, action `/feedback-success`
+
+Neither form navigates on submit. Both POST via `fetch` and then reveal an
+inline success panel, so the `action` attribute is only used as the URL for the
+second attempt described below.
+
+Netlify captures any POST carrying a known `form-name`, regardless of path, so
+the submit flow makes two genuine server-side attempts before giving up:
+
+1. `fetch` POST to `/` — on success, show the inline success panel
+2. if that fails, `fetch` POST to the form's `action` — same, a real attempt
+3. if both fail, reveal the inline error panel: the form stays visible with the
+   visitor's input intact, alongside a way to reach Ben directly
+
+Two things to keep in mind when editing this:
+
+- `fetch` only rejects on *network* failure, so each attempt must check
+  `res.ok` explicitly. Without it a 404 or 500 resolves successfully and the
+  form cheerfully reports "Message received" while dropping the submission.
+- Both attempts stay in-page on purpose. An earlier version fell back to a
+  native `form.submit()`, which navigated away and made any error state
+  unreachable — a total failure landed the visitor on a raw browser error page.
+
+**Netlify only emails you about submissions if a notification is configured**
+under Site configuration → Forms → Form notifications. That setting lives in the
+Netlify UI, not in this repo, so it is easy to forget and easy to lose when the
+site is reconfigured. Without it, enquiries sit in the dashboard unseen.
 
 ## Conventions
 
