@@ -151,7 +151,10 @@
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: new URLSearchParams(new FormData(feedbackForm)).toString()
             })
-            .then(() => {
+            .then((res) => {
+                // fetch only rejects on network failure, so check the status too —
+                // otherwise a 404/500 would still show the thank-you and lose the feedback
+                if (!res.ok) throw new Error('Submission failed: ' + res.status);
                 feedbackForm.classList.add('hidden');
                 feedbackSuccess.classList.remove('hidden');
             })

@@ -86,8 +86,8 @@
                 <li><a href="#contact" class="text-sm font-medium text-kw-light-beige hover:text-kw-orange transition-colors duration-200 ease-in-out focus:outline-none focus-visible:text-kw-orange focus-visible:underline">Contact</a></li>
             </ul>
 
-            <button id="mobile-menu-button" class="md:hidden p-2 rounded text-kw-light-beige hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-kw-orange">
-                <span class="sr-only">Open main menu</span>
+            <button id="mobile-menu-button" type="button" aria-controls="mobile-menu" aria-expanded="false" class="md:hidden p-2 rounded text-kw-light-beige hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-kw-orange">
+                <span class="sr-only" id="mobile-menu-button-label">Open main menu</span>
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
@@ -488,15 +488,23 @@
         // --- Simple Mobile Menu Toggle ---
         const menuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
+        const menuButtonLabel = document.getElementById('mobile-menu-button-label');
+
+        // Keep the button's announced state in step with the menu's visibility
+        const setMenuOpen = (open) => {
+            mobileMenu.classList.toggle('hidden', !open);
+            menuButton.setAttribute('aria-expanded', String(open));
+            menuButtonLabel.textContent = open ? 'Close main menu' : 'Open main menu';
+        };
 
         menuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+            setMenuOpen(mobileMenu.classList.contains('hidden'));
         });
 
         // Close menu when a link is clicked
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+                setMenuOpen(false);
             });
         });
 
