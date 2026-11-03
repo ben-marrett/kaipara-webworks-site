@@ -1,0 +1,13 @@
+# Deploy configuration for kaiparawebworks.co.nz
+#
+# Static site, no build step. The HTML is hand-written and dist/styles.css is
+# compiled locally by the Tailwind CLI and committed, so Netlify just serves
+# the repo root as-is. Rebuild the CSS before pushing any HTML change:
+#
+#   npx tailwindcss -i ./src/input.css -o ./dist/styles.css --minify
+
+[build]
+  publish = "."
+
+# Redirects live in _redirects and headers live in _headers — single source of
+# truth for each, rather than duplicating them here where the two could drift.

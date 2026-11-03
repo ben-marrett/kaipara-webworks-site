@@ -1,1 +1,4 @@
-/success  /#contact  200
+# The feedback form submits via fetch and shows an inline success message.
+# This only fires in the no-JS / fetch-failure fallback path, where the form
+# does a native POST to its action attribute.
+/feedback-success  /success  200
